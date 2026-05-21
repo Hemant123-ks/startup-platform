@@ -1,20 +1,11 @@
 {
-<<<<<<< HEAD
-    "name": "startup-platform",
-=======
     "name": "devblog",
->>>>>>> 911cd8a2a3480eb8e4ed19877f1a34245e21d942
     "version": "1.0.0",
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-<<<<<<< HEAD
         "dev": "nodemon server.js",
-
         "start": "node server.js"
-=======
-        "dev": "nodemon server.js"
->>>>>>> 911cd8a2a3480eb8e4ed19877f1a34245e21d942
     },
     "keywords": [],
     "author": "",
@@ -22,18 +13,11 @@
     "description": "",
     "dependencies": {
         "bcryptjs": "^3.0.3",
-<<<<<<< HEAD
-        "dotenv": "^17.4.2",
-        "express": "^5.2.1",
-        "jsonwebtoken": "^9.0.3",
-        "mongoose": "^9.6.2"
-=======
         "cookie-parser": "^1.4.7",
         "dotenv": "^17.4.2",
         "express": "^5.2.1",
         "jsonwebtoken": "^9.0.3",
-        "mongoose": "^9.4.1"
->>>>>>> 911cd8a2a3480eb8e4ed19877f1a34245e21d942
+        "mongoose": "^9.6.2"
     },
     "devDependencies": {
         "nodemon": "^3.1.14"
