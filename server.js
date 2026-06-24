@@ -1,18 +1,28 @@
 require("dotenv").config();
-const express = require("express");
+
 const connectdb = require("./config/db.js");
-const http = require("http");
-const { Server } = require("socket.io");
+const { io, app, httpServer } = require("./socket-instance.js");
+
+
+const { savesockets } = require("./socket.js");
+
+
 const start = require("./routes/startuproutes.js")
 const authRouter = require("./routes/authRoutes.js");
 const app2 = require("./routes/approutes.js");
 
 connectdb();
 
-const app = express();
-app.use(express.json());
-const httpServer = http.createServer(app);
-const io = new Server(httpServer);
+
+
+io.on("connection", (socket) => {
+    console.log("a user connected:", socket.id);
+
+    socket.on("register", (userId) => {
+        savesockets(userId, socket.id);
+        console.log(`user ${userId} registered with socket ${socket.id}`);
+    });
+});
 app.use("/auth", authRouter);
 
 app.use("/startup", start);
@@ -25,3 +35,4 @@ app.get("/", (req, res) => {
 httpServer.listen(PORT, () => {
     console.log(`server is running on port ${PORT}`);
 });
+module.exports = { io };
